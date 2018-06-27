@@ -3,7 +3,7 @@ import Moment from 'moment';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -45,28 +45,37 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <table>
-          <tbody>
-            {this.state.data.map((post, i) => <BlogRow key = {i} data = {post} />)}
-          </tbody>
-        </table>
+        <div className="App-content">
+            <table>
+            <tbody>
+                {this.state.data.map((post, i) => <BlogRow key = {i} data = {post} />)}
+            </tbody>
+            </table>
+            <nav>
+                <ul>
+                    <li>Blog Post 1</li>
+                    <li>Blog Post 2</li>
+                    <li>Blog Post 3</li>
+                </ul>
+            </nav>
+        </div>
+        <footer>
+            This reactJS site was made by Aaron Tawil
+        </footer>
       </div>
     );
   }
 }
 
-class BlogRow extends React.Component {
+class BlogRow extends Component {
   render() {
     Moment.locale('en');
-    var thisTimestamp = this.props.data.timestamp;
+    var thisTimestamp = JSON.parse(this.props.data.timestamp);
     return (
       <tr class="blogRow">
         <td>
-          {this.props.data.id}". "<br/>
-          {Moment(thisTimestamp).format('MM/d/yyyy THH:mm:ss')}
+          {this.props.data.id}<br/><br/>
+          {Moment(thisTimestamp).format("M/D/YYYY TH:mm:ss")}
         </td>
         <td>
           <h3>{this.props.data.title}</h3>
