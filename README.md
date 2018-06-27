@@ -2,9 +2,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 It is Assignment 4 for Aaron Tawil in CS612
 
-#Requirements:
-- From your node Terminal run the command 'npm install moment --save'
+# Requirements:
+- From your node Terminal run the command `npm install moment --save`
   - The reason for this is to handle the date format for each blog posts timestamp
+
+# How to Run:
+- Clone or fork the github repository
+- Using whichever environment you would like cd into the My-App folder
+- run `npm start`
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
