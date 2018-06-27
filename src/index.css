@@ -17,6 +17,10 @@ body {
   font-weight: bold;
 }
 
+.timestamp {
+  font-size: 0.8em;
+}
+
 nav {
   width: 20%;
 }

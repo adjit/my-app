@@ -53,9 +53,7 @@ class App extends Component {
             </table>
             <nav>
                 <ul>
-                    <li>Blog Post 1</li>
-                    <li>Blog Post 2</li>
-                    <li>Blog Post 3</li>
+                  {this.state.data.map((postLink, i) => <NavRow key = {i} data = {postLink} />)}
                 </ul>
             </nav>
         </div>
@@ -67,19 +65,31 @@ class App extends Component {
   }
 }
 
+class NavRow extends Component {
+  render() {
+    var thisLink = "#blogPost-"+this.props.data.id;
+    return (
+      <li>
+        <a href={thisLink}>Blog Post {this.props.data.id}</a>
+      </li>
+    );
+  }
+}
+
 class BlogRow extends Component {
   render() {
     Moment.locale('en');
     var thisTimestamp = JSON.parse(this.props.data.timestamp);
+    var thisID = "blogPost-"+this.props.data.id;
     return (
-      <tr class="blogRow">
+      <tr className="blogRow" id={thisID}>
         <td>
           {this.props.data.id}<br/><br/>
-          {Moment(thisTimestamp).format("M/D/YYYY TH:mm:ss")}
+          <span className="timestamp">{Moment(thisTimestamp).format("M/D/YYYY TH:mm:ss")}</span>
         </td>
         <td>
           <h3>{this.props.data.title}</h3>
-          <div class="blogContent">{this.props.data.body}</div>
+          <div className="blogContent">{this.props.data.body}</div>
         </td>
       </tr>
     );
