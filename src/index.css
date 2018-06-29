@@ -10,7 +10,7 @@ body {
 }
 
 .App-content > table {
-  width: 78%;
+  width: calc(99% - 200px);
 }
 
 .App-content > table td:first-child {
@@ -22,7 +22,7 @@ body {
 }
 
 nav {
-  width: 20%;
+  width: 200px;
 }
 
 nav ul {
